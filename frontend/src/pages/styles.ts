@@ -29,28 +29,39 @@ export const EventForm = styled.div`
 
 export const EventList = styled.div`
   display: flex;
+  flex-direction: column;
   width: 70%;
   height: 550px;
-  flex-direction: column;
   padding: 30px;
   gap: 20px;
   border: 3px solid #ffffff;
   border-radius: 15px;
   background: radial-gradient(circle, rgba(0,168,158,1) 0%, rgba(3,43,42,1) 100%);
-  `
-;
+  overflow: hidden;
+`;
+
+
+export const EventListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 7%;
+  padding-left: 10px;
+  width: 100%;
+`;
+
 
 export const EventListScroll = styled.div`
   display: flex;
-  height: 530px;
   flex-direction: column;
+  height: 100%;
+  max-height: 530px;
   padding: 10px;
   gap: 20px;
   border-radius: 4px;
-  overflow-y: auto; /* Ativa a rolagem vertical */
-  overflow-x: hidden; /* Impede a rolagem horizontal */
-
-  /* Estilo para a barra de rolagem */
+  overflow-y: auto;
+  overflow-x: hidden;
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -74,16 +85,13 @@ export const EventItem = styled.div`
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  background: white;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background: white;
-
-  div {
-    display: flex;
-    gap: 10px;
-  }
+  max-width: 100%;
 `;
+
 export const InputDescricao = styled.textarea`
   display: block;
   height: 200px;
@@ -103,6 +111,16 @@ export const InputDescricao = styled.textarea`
 
 export const Input = styled.input`
   display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+`;
+
+export const SearchInput = styled.input`
+  display: block;
+  width: 65%;
   padding: 10px;
   margin-bottom: 10px;
   border: none;
@@ -168,9 +186,12 @@ export const Label = styled.p`
 `;
 
 export const LabelTitle = styled.p`
-  margin: 0;
   font-size: 20px;
   color: white;
   font-weight: bold;
+  margin: 0;
   text-align: center;
+  padding-right: 10px;
 `;
+
+

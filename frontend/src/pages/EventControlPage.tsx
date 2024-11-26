@@ -7,11 +7,13 @@ import {
   EventForm,
   EventItem,
   EventList,
+  EventListHeader,
   EventListScroll,
   Input,
   InputDescricao,
   Label,
   LabelTitle,
+  SearchInput,
   UpdateButton,
 } from "./styles";
 import { Event } from "../types";
@@ -23,6 +25,8 @@ const EventScreen: React.FC = () => {
   const [local, setLocal] = useState("");
   const [date, setDate] = useState("");
   const [expenses, setExpenses] = useState<Event[]>([]);
+  const [filteredExpenses, setFilteredExpenses] = useState<Event[]>([]);
+  const [searchTerm, setSearchTerm] = useState(""); // Barra de pesquisa
   const [editingId, setEditingId] = useState<string | null>(null);
   const [error, setError] = useState("");
 
@@ -30,10 +34,19 @@ const EventScreen: React.FC = () => {
     fetchEvents();
   }, []);
 
+  useEffect(() => {
+    // Filtrar eventos com base no título
+    const filtered = expenses.filter((expense) =>
+      expense.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredExpenses(filtered);
+  }, [searchTerm, expenses]);
+
   const fetchEvents = async () => {
     try {
       const response = await axios.get("http://localhost:3010/evento");
       setExpenses(response.data);
+      setFilteredExpenses(response.data); // Inicializa lista filtrada
     } catch (error) {
       console.error("Erro ao buscar eventos:", error);
       setError("Erro ao carregar eventos.");
@@ -102,7 +115,7 @@ const EventScreen: React.FC = () => {
     }
   };
 
-  const total = expenses.length;
+  const total = filteredExpenses.length;
 
   return (
     <Container>
@@ -154,9 +167,17 @@ const EventScreen: React.FC = () => {
       </EventForm>
 
       <EventList>
-        <LabelTitle>Número de Eventos Agendados: {total}</LabelTitle>
+        <EventListHeader>
+          <SearchInput
+            type="text"
+            placeholder="Pesquisar pelo título"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <LabelTitle>Eventos Agendados: {expenses.length}</LabelTitle>
+        </EventListHeader>
         <EventListScroll>
-          {expenses.map((expense) => (
+          {filteredExpenses.map((expense) => (
             <EventItem key={expense._id}>
               <Label>Título: {expense.title}</Label>
               <Label>Descrição: {expense.description}</Label>
