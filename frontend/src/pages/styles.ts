@@ -13,12 +13,13 @@ export const Container = styled.div`
 export const EventForm = styled.div`
   display: flex;
   width: 45%;
+  height: 550px;
   padding: 30px;
-  border: 1px solid #ccc;
+  border: 3px solid #ffffff;
   border-radius: 15px;
   flex-direction: column;
   gap: 20px;
-  background: linear-gradient(180deg, #454545, #d4d4d4);
+  background: radial-gradient(circle, rgba(0,168,158,1) 0%, rgba(3,43,42,1) 100%);
   justify-content: space-between;
   div {
     display: flex;
@@ -29,13 +30,13 @@ export const EventForm = styled.div`
 export const EventList = styled.div`
   display: flex;
   width: 70%;
-  height: 530px;
+  height: 550px;
   flex-direction: column;
   padding: 30px;
   gap: 20px;
-  border: 1px solid #ccc;
+  border: 3px solid #ffffff;
   border-radius: 15px;
-  background: linear-gradient(180deg, #454545, #d4d4d4);
+  background: radial-gradient(circle, rgba(0,168,158,1) 0%, rgba(3,43,42,1) 100%);
   `
 ;
 
@@ -91,13 +92,13 @@ export const InputDescricao = styled.textarea`
   margin-bottom: 10px;
   border: none;
   border-radius: 10px;
-  text-align: center; /* Centraliza horizontalmente */
-  resize: none; /* Impede redimensionamento manual */
-  overflow-wrap: break-word; /* Garante quebra de linha para palavras longas */
-  word-wrap: break-word; /* Compatibilidade adicional */
-  white-space: pre-wrap; /* Mantém espaços e quebras de linha */
-  vertical-align: middle; /* Centraliza verticalmente o texto dentro */
-  box-sizing: border-box; /* Garante que padding e borda sejam inclusos */
+  text-align: center;
+  resize: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  vertical-align: middle;
+  box-sizing: border-box; 
 `;
 
 export const Input = styled.input`
@@ -112,32 +113,51 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: green;
-  color: white;
-  border: none;
+  background-color: #00ffef;
+  color: black;
+  border: 2px solid #00ffef;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
 
   &:hover {
-    background-color: darkgreen;
+    background-color: #00c9bd;
+    color: black;
+    border: 2px solid #00c9bd;
   }
 `;
 
-export const UpdateButton = styled(Button)`
+export const UpdateButton = styled.button`
   width: 10%;
-  background: blue;
-  padding: 5px 10px;
+  padding: 5px;
+  background-color: #2e7772;
+  color: white;
+  border: 2px solid #2e7772;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+
   &:hover {
-    background-color: darkblue;
+    background-color: #235c58;
+    color: white;
+    border: 2px solid #235c58;
   }
 `;
 
-export const DeleteButton = styled(Button)`
+export const DeleteButton = styled.button`
   width: 10%;
-  background: red;
-  padding: 5px 10px;
+  padding: 5px;
+  background-color: #fc4545;
+  color: white;
+  border: 2px solid #fc4545;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+
   &:hover {
-    background-color: darkred;
+    background-color: #c93333;
+    color: white;
+    border: 2px solid #c93333;
   }
 `;
 

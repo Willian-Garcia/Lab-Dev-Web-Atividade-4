@@ -7,7 +7,6 @@ class EventController {
         try {
             const { description, title, local, date } = req.body;
 
-            // Validação dos campos
             if (!description || !title || !local || !date) {
                 return res.status(400).json({ message: "Todos os campos são obrigatórios." });
             }
@@ -22,24 +21,36 @@ class EventController {
         }
     }
 
-    // Método para buscar todos os eventos ou um evento específico por ID
-    static async getEvent(req: Request, res: Response): Promise<Response> {
+    // Método para buscar todos os eventos
+    static async getAllEvents(req: Request, res: Response): Promise<Response> {
         try {
-            const { id } = req.params;
-
-            if (id) {
-                const event = await Event.findById(id);
-                if (!event) {
-                    return res.status(404).json({ message: "Evento não encontrado." });
-                }
-                return res.status(200).json(event);
-            }
-
             const events = await Event.find();
             return res.status(200).json(events);
         } catch (error) {
             console.error(error);
             return res.status(500).json({ message: "Erro ao buscar eventos." });
+        }
+    }
+
+    // Método para buscar um evento específico por ID
+    static async getEventById(req: Request, res: Response): Promise<Response> {
+        try {
+            const { id } = req.params;
+
+            if (!id) {
+                return res.status(400).json({ message: "ID do evento é obrigatório." });
+            }
+
+            const event = await Event.findById(id);
+
+            if (!event) {
+                return res.status(404).json({ message: "Evento não encontrado." });
+            }
+
+            return res.status(200).json(event);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ message: "Erro ao buscar evento." });
         }
     }
 

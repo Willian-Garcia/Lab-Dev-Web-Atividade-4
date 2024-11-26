@@ -1,6 +1,6 @@
 # Lab-Dev-Web-Atividade-4
 
-O **Controle de Eventos** é uma solução simples e eficiente para gerenciar seus eventos. Ele permite que os usuários:
+O **Gerenciador de Eventos** é uma solução simples e eficiente para gerenciar seus eventos. Ele permite que os usuários:
 
 - Cadastrem seus eventos com título, descrição, local e data.
 - Atualizem informações de eventos já cadastrados.
@@ -26,7 +26,7 @@ Certifique-se de ter os seguintes programas instalados em sua máquina:
 ### 1. Clone o repositório
 Abra o terminal e execute os comandos abaixo:
 ```bash
-git clone https://github.com/Willian-Garcia/Lab-Dev-Web-Atividade-4.git
+git clone https://github.com/Willian-Garcia/Lab-Dev-Web-Atividade-4
 cd Lab-Dev-Web-Atividade-4
 
 ---

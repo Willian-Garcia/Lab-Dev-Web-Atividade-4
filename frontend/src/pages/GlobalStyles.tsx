@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #002147, #87CEFA);
+    background: linear-gradient(0deg, rgba(46,119,114,1) 25%, rgba(0,13,12,1) 100%);
     color: #fff;
     height: 100vh;
     justify-content: center;
